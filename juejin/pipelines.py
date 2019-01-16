@@ -13,6 +13,6 @@ class JuejinPipeline(object):
         cursor = db.cursor()
         sql = '''INSERT INTO juejin VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')'''%(item['buildTime'], item['updatedAt'], item['originalUrl'], item['screenshot'], item['content'], item['title'], item['viewsCount'], item['summaryInfo'])
         cursor.execute(sql)
-        cursor.commit()
+        db.commit()
         db.close()
         return item
