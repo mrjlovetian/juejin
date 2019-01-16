@@ -12,6 +12,6 @@ class JuejinPipeline(object):
         db = pymysql.connect('localhost', 'root', '897011805', 'yhj')
         cursor = db.cursor()
         cursor.execute("INSERT INTO juejin VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')"%(item['buildTime'], item['updatedAt'], item['originalUrl'], item['screenshot'], item['content'], item['title'], item['viewsCount'], item['summaryInfo']))
-        db.commit()
+        cursor.commit()
         db.close
         return item
