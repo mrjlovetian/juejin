@@ -16,7 +16,7 @@ class JjSpider(CrawlSpider):
     # )
 
     def parse(self, response):
-        datas = response.body['d']['entrylist']
+        datas = json(response.body)['d']['entrylist']
         for va in datas:
             print('aaaaaaaaaaaaaaaaaaaaaaaaaaaa%s'%(va['title']))
             item = JuejinItem()
