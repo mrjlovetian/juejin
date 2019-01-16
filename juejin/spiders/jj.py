@@ -3,6 +3,7 @@ import scrapy
 import json
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
+from juejin.items import JuejinItem
 
 
 class JjSpider(CrawlSpider):
@@ -18,6 +19,16 @@ class JjSpider(CrawlSpider):
         datas = response.body['d']['entrylist']
         for va in datas:
             print('aaaaaaaaaaaaaaaaaaaaaaaaaaaa%s'%(va['title']))
+            item = JuejinItem()
+            item['buildTime'] = va['buildTime']
+            item['updatedAt'] = va['updatedAt']
+            item['originalUrl'] = va['originalUrl']
+            item['screenshot'] = va['screenshot']
+            item['content'] = va['content']
+            item['title'] = va['title']
+            item['viewsCount'] = va['viewsCount']
+            item['summaryInfo'] = va['summaryInfo']
+            yield item
         
         # i = {}
         #i['domain_id'] = response.xpath('//input[@id="sid"]/@value').extract()

@@ -9,6 +9,13 @@ import scrapy
 
 
 class JuejinItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    buildTime = scrapy.Field()
+    updatedAt = scrapy.Field()
+    originalUrl = scrapy.Field()
+    screenshot = scrapy.Field()
+    content = scrapy.Field()
+    title = scrapy.Field()
+    viewsCount = scrapy.Field()
+    summaryInfo = scrapy.Field()
+
+
